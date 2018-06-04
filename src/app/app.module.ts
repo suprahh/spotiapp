@@ -12,6 +12,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {SpotifyService} from './services/spotify.service';
 import { ArtistsPipe } from './pipes/artists.pipe';
 import { ImagesUrlPipe } from './pipes/images-url.pipe';
+import { TarjetasComponent } from './components/shared/tarjetas/tarjetas.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 
 // import routes
@@ -24,7 +26,9 @@ import { ImagesUrlPipe } from './pipes/images-url.pipe';
     ArtistaComponent,
     NavbarComponent,
     ArtistsPipe,
-    ImagesUrlPipe
+    ImagesUrlPipe,
+    TarjetasComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

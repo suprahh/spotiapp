@@ -3,12 +3,6 @@
     <input #termino type="text" (keyup)="buscarArtista(termino.value)" class="form-control" placeholder="Busca tu artista ..">
   </div>
 </div>
+<app-loading *ngIf="loading"></app-loading>
+<app-tarjetas *ngIf="!loading" [items]="artistas"></app-tarjetas>
 
-<div  class="card-columns">
-  <div *ngFor="let artista of artistas" class="card">
-    <img class="card-img-top" [src]="artista.images | imagesUrl" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{artista.name}} - <span class="badge badge-pill badge-primary">{{artista.popularity}}</span></h5>
-      <p class="card-text">Tipo : {{artista.type}}.</p>
-    </div>
-  </div>

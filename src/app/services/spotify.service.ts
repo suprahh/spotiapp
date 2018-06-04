@@ -17,13 +17,19 @@ export class SpotifyService {
   public getArtista(artist) {
     const buscarArtista = `search?q=${artist}&type=artist&limit=10`;
     return this.getQuery(buscarArtista)
-      .pipe( map( (data: any) =>  data.artists.items));
+      .pipe( map( (data: any) =>  {
+        if (data.artists) {
+         return data.artists.items;
+        } else {
+          return null;
+        }
+      }));
   }
 
 
   public getQuery(query): any {
     const cabecera = new HttpHeaders()
-      .set('Authorization', 'Bearer BQC2GQXwHn2YV8j42EGpGVUBmPUlWS9ukqWjT8KwiP5SCaVPV7Rydx6bjrYMBjMkiBjnDM8HYEnRgMU49jY');
+      .set('Authorization', 'Bearer BQAM3rLOaFVaoa9OIEoKQVNkQ5-rNkXIfcXwbE0u79eEwcQhf04djZcw7H71OiinaM9Y8HZm8a4AhIQ9GSc');
     return this.http.get(`${this.url}${query}`, {headers: cabecera});
   }
 }

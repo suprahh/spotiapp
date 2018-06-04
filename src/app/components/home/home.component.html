@@ -1,10 +1,3 @@
-<div  class="card-columns">
-  <div *ngFor="let cancion of nuevasCanciones" class="card">
-    <img class="card-img-top" [src]="cancion.images[0].url" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{cancion.name}} - <span class="badge badge-pill badge-primary">{{cancion.artists | artists}}</span></h5>
-      <p class="card-text">Tipo : {{cancion.type}}.</p>
-      <p class="card-text">Fecha de lanzamiento : {{cancion.release_date}}.</p>
-    </div>
-  </div>
+<app-loading *ngIf="loading"></app-loading>
+<app-tarjetas [items]="nuevasCanciones"></app-tarjetas>
 

@@ -1,0 +1,12 @@
+<div  class="card-columns">
+  <pre>{{routerLinkActive}}</pre>
+  <div *ngFor="let item of items" class="card">
+    <img class="card-img-top" [src]="item.images | imagesUrl" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{item.name}} <span *ngIf="item.artists" class="badge badge-pill badge-primary">{{item.artists | artists}}</span></h5>
+      <p class="card-text">Tipo : {{item.type}}.</p>
+      <p *ngIf="item.release_date" class="card-text">Fecha de lanzamiento : {{item.release_date}}.</p>
+      <p *ngIf="item.popularity" class="card-text">Popularidad : <small class="badge badge-pill badge-primary"> {{item.popularity}}</small></p>
+    </div>
+  </div>
+</div>
