@@ -14,12 +14,12 @@ export class SpotifyService {
       .pipe( map( (data: any)  => data.albums.items));
   }
 
-  public getArtista(artist) {
+  public getArtistas(artist) {
     const buscarArtista = `search?q=${artist}&type=artist&limit=10`;
     return this.getQuery(buscarArtista)
       .pipe( map( (data: any) =>  {
         if (data.artists) {
-         return data.artists.items;
+          return data.artists.items;
         } else {
           return null;
         }
@@ -27,9 +27,23 @@ export class SpotifyService {
   }
 
 
+  public getArtista(id) {
+    const buscarArtista = `artists/${id}`;
+    return this.getQuery(buscarArtista);
+  }
+
+  public getTopTracks(id) {
+    const buscarArtista = `artists/${id}/top-tracks?country=ES`;
+    return this.getQuery(buscarArtista)
+      .pipe( map( (data: any) =>  {
+        return data.tracks;
+      }));
+  }
+
+
   public getQuery(query): any {
     const cabecera = new HttpHeaders()
-      .set('Authorization', 'Bearer BQAM3rLOaFVaoa9OIEoKQVNkQ5-rNkXIfcXwbE0u79eEwcQhf04djZcw7H71OiinaM9Y8HZm8a4AhIQ9GSc');
+      .set('Authorization', 'Bearer BQD92pQkvJBXfhZ1HdliGRv4FseSiqedDVuv1T7bON9qFRF1GjjiSldeaVb3mFJkZ92pf31Mwist-iHpp5Y');
     return this.http.get(`${this.url}${query}`, {headers: cabecera});
   }
 }

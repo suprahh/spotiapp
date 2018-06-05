@@ -1,6 +1,6 @@
 <div  class="card-columns">
   <pre>{{routerLinkActive}}</pre>
-  <div *ngFor="let item of items" class="card">
+  <div (click)="verArtista(item)" *ngFor="let item of items" class="card puntero">
     <img class="card-img-top" [src]="item.images | imagesUrl" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{item.name}} <span *ngIf="item.artists" class="badge badge-pill badge-primary">{{item.artists | artists}}</span></h5>

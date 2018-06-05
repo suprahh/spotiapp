@@ -9,7 +9,7 @@ export class ArtistsPipe implements PipeTransform {
     if (artistas) {
       const result = artistas.map(artista => {
         return ` ${artista.name}`;
-      })
+      });
       return result;
     }
     return [];
